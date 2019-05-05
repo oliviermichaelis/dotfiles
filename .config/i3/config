@@ -111,15 +111,15 @@ set $ws9 "9:"
 set $ws10 "10:"
 
 # output workspace to monitor
-workspace $WS1 output $Mon1
-workspace $WS2 output $Mon2
-workspace $WS3 output $Mon3
-workspace $WS4 output $Mon2
-workspace $WS5 output $Mon3
-workspace $WS6 output $Mon2
-workspace $WS7 output $Mon3
-workspace $WS8 output $Mon2
-workspace $WS9 output $Mon3
+workspace $WS1 output $Mon2
+workspace $WS2 output $Mon3
+workspace $WS3 output $Mon2
+workspace $WS4 output $Mon3
+workspace $WS5 output $Mon2
+workspace $WS6 output $Mon3
+workspace $WS7 output $Mon2
+workspace $WS8 output $Mon3
+workspace $WS9 output $Mon1
 workspace $WS10 output $Mon1
 
 # switch to workspace
@@ -186,6 +186,8 @@ bindsym $mod+r mode "resize"
 
 exec --no-startup-id xrandr --output DP-3 --left-of HDMI-1 --output DVI-D-1 --left-of DP-3
 exec --no-startup-id ksuperkey -e 'Super_L=Alt_L|F1'
+exec --no-startup-id redshift-gtk -l 52.52437:13.41053 
+exec --no-startup-id dropbox
 
 exec_always xrdb ~/.Xresources
 exec_always --no-startup-id compton
