@@ -72,7 +72,9 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+#bindsym $mod+f fullscreen toggle
+# exec thunar
+bindsym $mod+f exec thunar
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -96,7 +98,7 @@ bindsym $mod+a focus parent
 ################################################################
 
 set $Mon1 DVI-D-1
-set $Mon2 DP-3
+set $Mon2 DP-1
 set $Mon3 HDMI-1
 
 set $ws1 "1:"
@@ -184,7 +186,7 @@ bindsym $mod+r mode "resize"
 #################                            Autostart                            ##################
 ####################################################################################################
 
-exec --no-startup-id xrandr --output DP-3 --left-of HDMI-1 --output DVI-D-1 --left-of DP-3
+exec_always --no-startup-id xrandr --output $Mon2 --left-of $Mon3 --output $Mon1 --left-of $Mon2
 exec --no-startup-id ksuperkey -e 'Super_L=Alt_L|F1'
 exec --no-startup-id redshift-gtk -l 52.52437:13.41053 
 exec --no-startup-id dropbox
