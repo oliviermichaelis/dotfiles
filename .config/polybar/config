@@ -44,7 +44,7 @@ module-margin-left = 3
 module-margin-right = 3
 
 modules-left =  i3
-modules-center = clock
+modules-center = date
 
 tray-position = right
 tray-padding = 2
@@ -78,7 +78,7 @@ module-margin-left = 3
 module-margin-right = 3
 
 modules-left =  i3
-modules-center = clock
+modules-center = 
 ;modules-right = volume network battery 
 
 ;tray-position = right
@@ -113,7 +113,7 @@ module-margin-left = 3
 module-margin-right = 3
 
 modules-left =  i3
-modules-center = clock
+modules-center = 
 ;modules-right = volume network battery 
 
 ;tray-position = right

@@ -1,0 +1,5 @@
+mainwindow_position = none
+mainwindow_xoffset = 845
+mainwindow_yoffset = 25
+close_on_unfocus = 1
+

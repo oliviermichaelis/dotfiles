@@ -11,7 +11,6 @@ smart_gaps on
 # border & title.. Must be set to border pixel for gaps to work
 for_window [class="^.*"] border pixel 2, title_format "<b> %class >> %title </b>"
 
-
 # Rest
 set $mod Mod4
 
