@@ -46,4 +46,10 @@ endif
 
 " use clipboard instead of primary
 set clipboard=unnamedplus
+
+" line numbers on the left
 set number
+
+" Syntax highlighting
+syntax on
+
