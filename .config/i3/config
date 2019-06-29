@@ -189,6 +189,7 @@ exec_always --no-startup-id xrandr --output $Mon2 --left-of $Mon3 --output $Mon1
 exec --no-startup-id ksuperkey -e 'Super_L=Alt_L|F1'
 exec --no-startup-id redshift-gtk -l 52.52437:13.41053 
 exec --no-startup-id dropbox
+exec --no-startup-id thunar --daemon
 
 exec_always xrdb ~/.Xresources
 exec_always --no-startup-id compton
