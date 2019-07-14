@@ -102,4 +102,5 @@ alias shutdown="shutdown now"
 USER_BASE_PATH=$(python -m site --user-base)
 
 export PATH=$PATH:$USER_BASE_PATH/bin
+export GOPATH=$HOME/Documents/go
 
