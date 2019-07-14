@@ -96,3 +96,10 @@ alias ll="ls -alF"
 alias l="ls -CF"
 alias shutdown="shutdown now"
 
+# Path settings
+#
+# pip/python user home directory for scripts:
+USER_BASE_PATH=$(python -m site --user-base)
+
+export PATH=$PATH:$USER_BASE_PATH/bin
+
