@@ -53,3 +53,7 @@ set number
 " Syntax highlighting
 syntax on
 
+" Settings to use 2 spaces instead of tabs
+set expandtab
+set tabstop=2
+
