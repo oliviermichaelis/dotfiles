@@ -56,6 +56,7 @@ syntax on
 " Settings to use 2 spaces instead of tabs
 set expandtab
 set tabstop=2
+set shiftwidth=2
 
 " Automatically retrieve and install vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
