@@ -7,14 +7,14 @@ endif
 " Get the defaults that most users want.
 source $VIMRUNTIME/defaults.vim
 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file (restore to previous version)
-  if has('persistent_undo')
-    set undofile	" keep an undo file (undo changes after closing)
-  endif
-endif
+"if has("vms")
+"  set nobackup		" do not keep a backup file, use versions instead
+"else
+"  set backup		" keep a backup file (restore to previous version)
+"  if has('persistent_undo')
+"    set undofile	" keep an undo file (undo changes after closing)
+"  endif
+"endif
 
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
@@ -57,17 +57,20 @@ syntax on
 " Provides tab-completion for all file-related tasks
 set path+=**
 
-" Tab characters that appear 4 spaces wide
-set tabstop=2
-set softtabstop=0 expandtab
-set shiftwidth=2
-
 " Enable autoindent
 set autoindent
+
+" Settings to use 2 spaces instead of tabs
+set tabstop=2
+set expandtab
+set shiftwidth=2
 
 " Perform case insensitive search if no capital letter in search
 set ignorecase
 set smartcase
+
+" Overwrite backups setting from above:
+set nobackup
 
 " Mappings
 "
@@ -81,6 +84,12 @@ imap jj <Esc>
 " Plugins
 "
 "
+" Automatically retrieve and install vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 call plug#begin()
 Plug 'junegunn/seoul256.vim'
@@ -98,4 +107,3 @@ call plug#end()
 "   Default: 237
 let g:seoul256_background = 235
 colo seoul256
-
