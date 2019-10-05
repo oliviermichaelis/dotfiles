@@ -53,14 +53,37 @@ set number
 " Syntax highlighting
 syntax on
 
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+
+" Enable autoindent
+set autoindent
+
 " Settings to use 2 spaces instead of tabs
-set expandtab
 set tabstop=2
+set expandtab
 set shiftwidth=2
+
+" Perform case insensitive search if no capital letter in search
+set ignorecase
+set smartcase
 
 " Overwrite backups setting from above:
 set nobackup
 
+" Mappings
+"
+"
+
+" Escape key alternative
+imap jj <Esc>
+
+
+
+" Plugins
+"
+"
 " Automatically retrieve and install vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -68,10 +91,19 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Section for vim-plug plugins:
 call plug#begin()
-
+Plug 'junegunn/seoul256.vim'
 Plug 'vim-airline/vim-airline'
-
 call plug#end()
 
+
+
+" Colorschemes
+"
+"
+
+" seoul256 (dark):
+"   Range:   233 (darkest) ~ 239 (lightest)
+"   Default: 237
+let g:seoul256_background = 235
+colo seoul256

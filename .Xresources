@@ -14,7 +14,7 @@ URxvt.urgentOnBell: True
 URxvt.cursorBlink: True
 URxvt.cursorUnderline: False
 URxvt.iso14755: False
-URxvt.internalBorder: 30
+URxvt.internalBorder: 10
 ! urls
 URxvt*depth: 32
 !URxvt.transparent: true
@@ -73,3 +73,4 @@ URxvt.color6  : #d35a7c
 URxvt.color14 : #d35a7c
 URxvt.color7  : #3c3760
 URxvt.color15 : #3c3760
+
