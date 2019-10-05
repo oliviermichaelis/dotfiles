@@ -53,3 +53,49 @@ set number
 " Syntax highlighting
 syntax on
 
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+
+" Tab characters that appear 4 spaces wide
+set tabstop=2
+set softtabstop=0 expandtab
+set shiftwidth=2
+
+" Enable autoindent
+set autoindent
+
+" Perform case insensitive search if no capital letter in search
+set ignorecase
+set smartcase
+
+" Mappings
+"
+"
+
+" Escape key alternative
+imap jj <Esc>
+
+
+
+" Plugins
+"
+"
+
+call plug#begin()
+Plug 'junegunn/seoul256.vim'
+Plug 'vim-airline/vim-airline'
+call plug#end()
+
+
+
+" Colorschemes
+"
+"
+
+" seoul256 (dark):
+"   Range:   233 (darkest) ~ 239 (lightest)
+"   Default: 237
+let g:seoul256_background = 235
+colo seoul256
+
