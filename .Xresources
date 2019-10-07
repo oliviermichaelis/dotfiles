@@ -14,7 +14,7 @@ URxvt.urgentOnBell: True
 URxvt.cursorBlink: True
 URxvt.cursorUnderline: False
 URxvt.iso14755: False
-URxvt.internalBorder: 10
+URxvt.internalBorder: 0
 ! urls
 URxvt*depth: 32
 !URxvt.transparent: true
