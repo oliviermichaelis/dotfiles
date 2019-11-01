@@ -112,16 +112,16 @@ set $ws9 "9:"
 set $ws10 "10:"
 
 # output workspace to monitor
-workspace $WS1 output $Mon2
-workspace $WS2 output $Mon3
-workspace $WS3 output $Mon2
-workspace $WS4 output $Mon3
+workspace $WS1 output $Mon1
+workspace $WS2 output $Mon2
+workspace $WS3 output $Mon3
+workspace $WS4 output $Mon1
 workspace $WS5 output $Mon2
 workspace $WS6 output $Mon3
-workspace $WS7 output $Mon2
-workspace $WS8 output $Mon3
-workspace $WS9 output $Mon1
-workspace $WS10 output $Mon1
+workspace $WS7 output $Mon1
+workspace $WS8 output $Mon2
+workspace $WS9 output $Mon3
+workspace $WS10 output $Mon3
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -196,3 +196,10 @@ exec_always --no-startup-id compton
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id $HOME/.config/polybar/launch_polybar.sh
 
+
+####### Media
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
