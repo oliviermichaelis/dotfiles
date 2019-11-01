@@ -1,5 +1,14 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/usr/share/oh-my-zsh
+case `uname` in
+  Darwin)
+    # commands for OS X go here
+    export ZSH=/Users/olivier/.oh-my-zsh
+  ;;
+  Linux)
+    # commands for Linux go here
+    export ZSH=/usr/share/oh-my-zsh
+  ;;
+esac
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -73,7 +82,7 @@ export LANG=en_US.UTF-8
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export EDITOR='vim'
 fi
 
 # Compilation flags
