@@ -37,6 +37,7 @@ bindsym Mod1+q kill
 # this is needed for super key to launch rofi
 bindsym Mod1+F1 exec --no-startup-id /usr/bin/rofi -show drun -modi drun#window -show-icons -sidebar-mode
 
+
 # prevent mouse from changing focous
 focus_follows_mouse no
 
@@ -195,6 +196,7 @@ exec_always xrdb ~/.Xresources
 exec_always --no-startup-id compton
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id $HOME/.config/polybar/launch_polybar.sh
+exec_always --no-startup-id setxkbmap -option caps:escape
 
 
 ####### Media

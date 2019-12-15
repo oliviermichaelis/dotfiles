@@ -72,6 +72,10 @@ set smartcase
 " Overwrite backups setting from above:
 set nobackup
 
+" Show trailing whitepace and spaces before a tab:
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
+
 " Mappings
 "
 "
