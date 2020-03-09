@@ -1,4 +1,8 @@
-# Path to your oh-my-zsh installation.
+###############################################################################
+# oh-my-zsh
+###############################################################################
+
+#Path to your oh-my-zsh installation.
 case `uname` in
   Darwin)
     # commands for OS X go here
@@ -14,53 +18,10 @@ esac
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="maran"
-#ZSH_THEME="common"
-#ZSH_THEME="dpoggi"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-#ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
@@ -71,7 +32,11 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+
+
+###############################################################################
 # User configuration
+###############################################################################
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -85,23 +50,45 @@ else
   export EDITOR='vim'
 fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
-# zsh aliases
+# Enable vim mode on command line
+bindkey -v
+
+# Workaround to get autocomplete based on history working in vim mode
+# start typing + [Up-Arrow] - fuzzy find history forward
+if [[ "${terminfo[kcuu1]}" != "" ]]; then
+  autoload -U up-line-or-beginning-search
+  zle -N up-line-or-beginning-search
+  bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
+fi
+# start typing + [Down-Arrow] - fuzzy find history backward
+if [[ "${terminfo[kcud1]}" != "" ]]; then
+  autoload -U down-line-or-beginning-search
+  zle -N down-line-or-beginning-search
+  bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
+fi
+
+
+
+###############################################################################
+# Aliases
+###############################################################################
 alias la="ls -A"
 alias ll="ls -alF"
 alias l="ls -CF"
 alias shutdown="shutdown now"
+alias k="kubectl"
 
-# Path settings
-#
-# pip/python user home directory for scripts:
-USER_BASE_PATH=$(python -m site --user-base)
 
-export PATH=$PATH:$USER_BASE_PATH/bin
-export GOPATH=$HOME/go
 
+###############################################################################
+# Command Completion
+###############################################################################
 source <(kubectl completion zsh)
 source <(helm completion zsh)
+
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' completer _expand _complete _ignored 
 
