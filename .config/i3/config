@@ -196,6 +196,8 @@ bindsym Mod1+F1 exec --no-startup-id /usr/bin/rofi -show drun -modi drun#window 
 # Start thunar
 bindsym $mod+f exec thunar
 
+# Start custom lock/logout/reboot script
+bindsym $mod+x exec --no-startup-id ~/Documents/scripts/util/rofi-logout
 
 ################################################################################
 ########## Media Bindings 
