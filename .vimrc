@@ -45,7 +45,7 @@ endif
 "
 
 " use clipboard instead of primary
-set clipboard=unnamedplus
+set clipboard^=unnamed,unnamedplus
 
 " line numbers on the left
 set number
@@ -58,7 +58,7 @@ syntax on
 set path+=**
 
 " Enable autoindent
-set autoindent
+"set autoindent
 
 " Settings to use 2 spaces instead of tabs
 set tabstop=2
@@ -89,6 +89,15 @@ else
     let &t_te.="\<Esc>[0 q"
 endif
 
+" Disable autoident when pasting
+"let &t_SI .= "\<Esc>[?2004h"
+"let &t_EI .= "\<Esc>[?2004l"
+"inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+"function! XTermPasteBegin()
+"  set pastetoggle=<Esc>[201~
+"  set paste
+"  return ""
+"endfunction
 
 
 " Mappings
