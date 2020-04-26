@@ -54,6 +54,9 @@ fi
 # Enable vim mode on command line
 bindkey -v
 
+# Workaround to enable backspace after switching from normal to insert mode
+bindkey "^?" backward-delete-char
+
 # Workaround to get autocomplete based on history working in vim mode
 # start typing + [Up-Arrow] - fuzzy find history forward
 if [[ "${terminfo[kcuu1]}" != "" ]]; then
@@ -68,7 +71,8 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
   bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 fi
 
-
+# Don't share history between terminals
+unsetopt share_history
 
 ###############################################################################
 # Aliases
@@ -90,5 +94,5 @@ source <(helm completion zsh)
 autoload -Uz compinit
 compinit
 
-zstyle ':completion:*' completer _expand _complete _ignored 
+zstyle ':completion:*' completer _expand _complete _ignored
 
