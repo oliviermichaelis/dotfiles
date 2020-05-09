@@ -131,7 +131,7 @@ mode "resize" {
 ################################################################
 
 set $Mon1 DVI-D-1
-set $Mon2 DP-1
+set $Mon2 DP-2
 set $Mon3 HDMI-1
 
 set $ws1 "1:"
@@ -216,12 +216,14 @@ bindsym XF86AudioPrev exec playerctl previous
 
 exec_always --no-startup-id xrandr --output $Mon2 --left-of $Mon3 --output $Mon1 --left-of $Mon2
 exec_always --no-startup-id xrdb ~/.Xresources
-exec_always --no-startup-id compton
+exec_always --no-startup-id picom
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id $HOME/.config/polybar/launch_polybar.sh
+
 
 exec --no-startup-id ksuperkey -e 'Super_L=Alt_L|F1'
 exec --no-startup-id redshift-gtk -l 52.52437:13.41053 
 exec --no-startup-id dropbox
 exec --no-startup-id thunar --daemon
+exec --no-startup-od dunst
 
