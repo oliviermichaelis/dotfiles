@@ -80,6 +80,7 @@ unsetopt share_history
 alias la="ls -A"
 alias ll="ls -alF"
 alias l="ls -CF"
+alias ip="ip -c"
 alias shutdown="shutdown now"
 alias k="kubectl"
 
